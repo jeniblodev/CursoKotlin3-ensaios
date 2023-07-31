@@ -5,6 +5,8 @@ import br.com.alura.alugames.modelo.Jogo
 
 fun main() {
     val conexao = Banco.obterConexao()
-    println(conexao)
+
+    val listaJogos: List<Jogo> = Banco.getJogos()
+    println(listaJogos)
 
 }
