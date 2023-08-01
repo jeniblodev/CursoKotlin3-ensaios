@@ -5,18 +5,12 @@ import javax.persistence.EntityManager
 import javax.persistence.Id
 
 
-class JogosDAO(private val manager: EntityManager): DAO<Jogo>() {
+class JogosDAO(manager: EntityManager): DAO<Jogo>(manager) {
+
+
     override fun getLista(): List<Jogo> {
         val query = manager.createQuery("FROM JogoEntity", JogoEntity::class.java)
         return query.resultList.map { entity -> Jogo(entity.titulo, entity.capa, entity.preco, entity.descricao, entity.id) }
-
-    }
-
-    override fun adicionar(jogo: Jogo) {
-        val entity = JogoEntity(jogo.titulo, jogo.capa, jogo.preco, jogo.descricao)
-        manager.transaction.begin()
-        manager.persist(entity)
-        manager.transaction.commit()
 
     }
 
