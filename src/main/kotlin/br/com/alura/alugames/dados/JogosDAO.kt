@@ -5,8 +5,11 @@ import javax.persistence.EntityManager
 import javax.persistence.Id
 
 
-class JogosDAO(manager: EntityManager): DAO<Jogo>(manager) {
+class JogosDAO(manager: EntityManager): DAO<Jogo, JogoEntity>(manager, JogoEntity::class.java) {
 
+    override fun toEntity(jogo: Jogo): JogoEntity {
+        return JogoEntity(jogo.titulo, jogo.capa, jogo.preco, jogo.descricao, jogo.id)
+    }
 
     override fun getLista(): List<Jogo> {
         val query = manager.createQuery("FROM JogoEntity", JogoEntity::class.java)
@@ -21,15 +24,7 @@ class JogosDAO(manager: EntityManager): DAO<Jogo>(manager) {
         return Jogo(entity.titulo, entity.capa, entity.preco, entity.descricao, entity.id)
     }
 
-    override fun apagar(id: Id) {
-        val query = manager.createQuery("FROM JogoEntity WHERE id=:id", JogoEntity::class.java)
-        query.setParameter("id", id)
-        val entity = query.singleResult
 
-        manager.transaction.begin()
-        manager.remove(entity)
-        manager.transaction.commit()
-    }
 
 
 
