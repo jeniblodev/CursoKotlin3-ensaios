@@ -31,6 +31,7 @@ from
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="6a494369-b5d2-4149-bd08-b74c806af5de" dataset="alugames4.gamers3" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="6a494369-b5d2-4149-bd08-b74c806af5de" dataset="alugames4.jogos" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="6a494369-b5d2-4149-bd08-b74c806af5de" dataset="alugames4.gamers" active-filter-id="EMPTY_FILTER" />
   </component>
