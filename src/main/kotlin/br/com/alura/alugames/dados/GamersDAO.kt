@@ -9,11 +9,14 @@ import javax.persistence.EntityManager
 class GamersDAO(manager: EntityManager): DAO<Gamer, GamerEntity>(manager, GamerEntity::class.java) {
 
     override fun toEntity(gamer: Gamer): GamerEntity {
-        return GamerEntity(gamer.id, gamer.nome, gamer.email, gamer.dataNascimento, gamer.usuario, gamer.plano.toEntity())
+        return gamer.toEntity()
     }
 
     override fun toModel(entity: GamerEntity): Gamer {
-        return Gamer(entity.nome, entity.email, entity.dataNascimento, entity.usuario).apply { plano = entity.plano.toModel() }
+        return entity.toModel()
+            .apply {
+                plano = entity.plano.toModel()
+                id = entity.id }
     }
 
 }
