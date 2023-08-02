@@ -20,12 +20,6 @@ fun main() {
 //    planoDAO.adicionar(platina)
 //    planoDAO.adicionar(diamante)
 
-    planoDAO.apagar(6)
-    planoDAO.apagar(7)
-    planoDAO.apagar(8)
-    planoDAO.apagar(9)
-    planoDAO.apagar(10)
-
     val listaPlanos = planoDAO.getLista()
     println(listaPlanos)
 

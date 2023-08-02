@@ -55,6 +55,7 @@ data class Gamer(var nome:String, var email:String): Recomendavel {
                 "Data Nascimento: $dataNascimento\n" +
                 "Usuario: $usuario\n" +
                 "IdInterno: $idInterno\n" +
+                "Plano: ${plano.tipo}\n" +
                 "Reputação: $media"
     }
 

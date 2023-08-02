@@ -14,13 +14,14 @@
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="6a494369-b5d2-4149-bd08-b74c806af5de">
       <console name="Connection" type="STANDARD" schema="alugames4" session="Main"><![CDATA[select
-    j.capa,
-    j.descricao,
-    j.id,
-    j.preco,
-    j.titulo
+    g.`dataNascimento`,
+    g.email,
+    g.id,
+    g.nome,
+    g.usuario,
+    g.plano_id
 from
-    jogos j;]]></console>
+    gamers g;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -31,6 +32,7 @@ from
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="6a494369-b5d2-4149-bd08-b74c806af5de" dataset="alugames4.jogos" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="6a494369-b5d2-4149-bd08-b74c806af5de" dataset="alugames4.gamers" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
