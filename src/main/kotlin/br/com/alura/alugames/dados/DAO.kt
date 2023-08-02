@@ -1,7 +1,6 @@
 package br.com.alura.alugames.dados
 
 import javax.persistence.EntityManager
-import javax.persistence.Id
 
 abstract class DAO <TModel, TEntity> (protected val manager: EntityManager, private val entityType: Class<TEntity>) {
 
@@ -17,13 +16,13 @@ abstract class DAO <TModel, TEntity> (protected val manager: EntityManager, priv
         manager.persist(entity)
         manager.transaction.commit()
     }
-    open fun recuperarPeloID(id: Id): TModel {
+    open fun recuperarPeloID(id: Int): TModel {
         val query = manager.createQuery("FROM ${entityType.simpleName} WHERE id=:id", entityType)
         query.setParameter("id", id)
         val entity = query.singleResult
         return toModel(entity)
     }
-    open fun apagar(id: Id) {
+    open fun apagar(id: Int) {
         val query = manager.createQuery("FROM ${entityType.simpleName} WHERE id=:id", entityType)
         query.setParameter("id", id)
         val entity = query.singleResult

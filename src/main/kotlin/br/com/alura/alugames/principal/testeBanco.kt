@@ -11,7 +11,7 @@ fun main() {
     val jogosDAO = JogosDAO(manager)
 //    jogosDAO.adicionarJogo(jogo2)
 
-    val listaJogos: List<Jogo> = jogosDAO.getJogos()
+    val listaJogos: List<Jogo> = jogosDAO.getLista()
     println(listaJogos)
 
     manager.close()
